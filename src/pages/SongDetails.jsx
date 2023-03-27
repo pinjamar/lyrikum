@@ -9,7 +9,7 @@ import {
 } from '../redux/services/shazamCore';
 
 const SongDetails = () => {
-  const { songid } = useParams();
+  const { songid, id: artistId } = useParams();
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
 
@@ -37,7 +37,7 @@ const SongDetails = () => {
 
   return (
     <div className="flex flex-col">
-      <DetailsHeader artistId="" songData={songData} />
+      <DetailsHeader artistId={artistId} songData={songData} />
 
       <div className="mb-10">
         <h2 className="text-white text-3xl font-bold">Lyrics:</h2>
@@ -56,6 +56,7 @@ const SongDetails = () => {
 
       <RelatedSongs
         data={data}
+        artistId={artistId}
         isPlaying={isPlaying}
         activeSong={activeSong}
         handlePauseClick={handlePauseClick}

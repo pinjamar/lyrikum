@@ -19,7 +19,7 @@ const CountryTracks = () => {
           import.meta.env.VITE_GEO_API_KEY
         }`
       )
-      .then((res) => setCountry(res?.data?.location?.country))
+      .then((res) => setCountry(res?.data?.location.country))
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
   }, [country]);
