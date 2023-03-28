@@ -28,11 +28,10 @@ export const shazamCoreApi = createApi({
       query: (artistId) => `v2/artists/details?artist_id=${artistId}`,
     }),
     getSongsByCountry: builder.query({
-      query: ({ countryCode }) =>
-        `v1/charts/country?country_code=${countryCode}`,
+      query: (countryCode) => `v1/charts/country?country_code=${countryCode}`,
     }),
     getSongsBySearch: builder.query({
-      query: ({ searchTerm }) =>
+      query: (searchTerm) =>
         `v1/search/multi?search_type=SONGS_ARTISTS&query=${searchTerm}`,
     }),
   }),
